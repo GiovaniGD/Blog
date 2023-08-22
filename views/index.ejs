@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" ng-app="blog">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -11,6 +11,9 @@
         <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
         <link href="/css/styles.css" rel="stylesheet" />
+
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+        
     </head>
     <body>
         <!-- Navegação -->
@@ -47,51 +50,18 @@
         <!-- Conteúdo principal -->
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="col-md-10 col-lg-8 col-xl-10">
                     <!-- Visualização do post -->
-                    <div class="post-preview">
-                        <a href="/o-desmatamento-das-araucarias-ao-longo-da-historia">
-                            <h2 class="post-title">O desmatamento das araucárias ao longo da história</h2>
-                            <h3 class="post-subtitle">A araucária e sua trajetória de desflorestamento no Sul do Brasil.</h3>
-                        </a>
-                        <p class="post-meta">
-                            Publicado por Giovani Dalmas em 24/09/2023
-                        </p>
+                    <div class="container" ng-controller="Rest">
+                        <div class="d-flex justify-content-center mt-5" style="cursor: pointer; border-bottom: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;" ng-repeat="publicacao in publicacoes">
+                            <img style="width: 12rem; height: 16rem; padding-right: 1rem; border-radius: 0.5rem;" ng-src="https://api-rest-post-diegocandido.herokuapp.com{{ publicacao.thumbImage }}">
+                            <div>
+                                <h1 class=""> {{ publicacao.title }} </h1>
+                                <p> {{ publicacao.description }} </p>
+                            </div>
+                            <hr class="my-4" />
+                        </div>
                     </div>
-                    <!-- Divisor -->
-                    <hr class="my-4" />
-                    <!-- Visualização do post -->
-                    <div class="post-preview">
-                        <a href="/conheca-algumas-especies-nativas-do-rs"><h2 class="post-title">Conheça algumas espécies nativas do RS.</h2></a>
-                        <p class="post-meta">
-                            Publicado por Giovani Dalmas em 18/09/2023
-                        </p>
-                    </div>
-                    <!-- Divisor -->
-                    <hr class="my-4" />
-                    <!-- Visualização do post -->
-                    <div class="post-preview">
-                        <a href="/a-vegetacao-dos-pampas">
-                            <h2 class="post-title">A vegetação dos pampas</h2>
-                            <h3 class="post-subtitle">Conheça mais sobre a vegetação nativa da região pampeana.</h3>
-                        </a>
-                        <p class="post-meta">
-                            Publicado por Giovani Dalmas em 24/07/2023
-                        </p>
-                    </div>
-                    <!-- Divisor -->
-                    <hr class="my-4" />
-                    <!-- Visualização do post -->
-                    <div class="post-preview">
-                        <a href="/a-vegetacao-da-mata-atlantica">
-                            <h2 class="post-title">A vegetação da Mata Atlântica</h2>
-                            <h3 class="post-subtitle">Conheça mais sobre a vegetação nativa da Mata Atlântica.</h3>
-                        </a>
-                        <p class="post-meta">
-                            Publicado por Giovani Dalmas em 08/06/2023
-                        </p>
-                    </div>
-                    <!-- Página-->
                 </div>
             </div>
         </div>
